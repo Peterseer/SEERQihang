@@ -1,4 +1,22 @@
-      function NPC_dialog(npc: int, msg: String, choice1: String, choice2: String, c1: *=null, c2: *=null): void {
+//@赛小息 Peterseer
+//启航盒子NPC对话窗口
+var Dialog:MovieClip;
+var cho1:Function; //待选对话1
+var cho2:Function; //待选对话2
+/*NPC列表
+1.罗杰船长
+2.蘑菇怪
+3.小赛尔
+4.贾斯汀站长
+5.巨型机器人
+6.派特博士
+7.风流赛小息
+*/
+
+
+
+ //用法: NPC_dialog(npc序号,说话内容,选项1文本,选项2文本,选项1Function,选项2Function)
+			function NPC_dialog(npc: int, msg: String, choice1: String, choice2: String, c1: *=null, c2: *=null): void {
 			addChild(dialog_panel);
 			dialog_panel.x = 0
 			dialog_panel.y = 0
@@ -18,6 +36,8 @@
 			}
 
 		}
+
+//把cho1和cho2写成公共命名可以把function执行分出来避免removeChild(dialog_panel)子类的问题
 		
 		function choice1_pick(event: MouseEvent): void {
 					dialog_panel.dialog.answer1.removeEventListener(MouseEvent.CLICK, choice1_pick);
